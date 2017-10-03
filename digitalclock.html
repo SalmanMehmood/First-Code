@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Digital Clock</title>
+    <style>
+        #clock{
+            font-size: 50px;
+            font-style: italic;
+            text-align: center;
+        }
+        #time{
+            text-align: center;
+            font-size: 40px;
+            color: purple;
+        }
+    </style>
+</head>
+<body onload="startTime()">
+    <p id="clock">digital clock using javascript</p>
+    <div id="time">   
+
+    </div>
+    <script>
+        function startTime()
+        {
+            let today = new Date();
+            let hour = today.getHours();
+            let minutes = today.getMinutes();
+            let seconds = today.getSeconds();
+            let a;
+            if(hour >= 12){
+                 a = "PM";
+                hour = hour - 12;
+            }
+            else{
+                a = "AM"
+            }
+            hour = checkTime(hour);
+            minutes = checkTime(minutes);
+            seconds = checkTime(seconds);
+            document.getElementById("time").innerHTML = hour + ":" + minutes + ":" + seconds + " " + a;
+            setTimeout(startTime,500);  
+        }
+        function checkTime(i) {
+            if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+            return i;
+}
+    </script>
+</body>
+</html> 
+     
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+<script>
+function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('txt').innerHTML =
+    h + ":" + m + ":" + s;
+    var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+
+}
+</script>
+</head>
+<body onload="startTime()">
+<div id="txt"></div>
+
+</body>
+</html> -->
